@@ -1,5 +1,5 @@
 <?php
- $conn = mysqli_connect("localhost","root","","student") or die("connection problem check ineternet connection".mysqli_connect_error());
+$conn = mysqli_connect("sql212.epizy.com","epiz_22449618","pcPUrS9U4NP","epiz_22449618_student") or die("connection problem check ineternet connection".mysqli_connect_error());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +62,7 @@
     </thead>
     <tbody>
 
-      <tr>
+      
 <?php 
 $rs = "select * from student";
 $qry = mysqli_query($conn,$rs);
@@ -70,18 +70,20 @@ if(mysqli_num_rows($qry)){
     while($row = mysqli_fetch_assoc($qry)){
 
     ?>
+    <tr>
         <td><?php echo $row['STUDENT_NO']; ?></td>
         <td><?php echo $row['STUDENT_NAME']; ?></td>
         <td><?php echo $row['STUDENT_DOB']; ?></td>
         <td><?php echo $row['STUDENT_DOJ']; ?></td>
         <td><a href="edit.php?id=<?php echo $row['STUDENT_NO']; ?>"><i class="fa fa-edit" style="font-size:24px;color:white;"></i></a> </td>
         <td><a href="delete.php?id=<?php echo $row['STUDENT_NO']; ?>"><i class="fa fa-trash" style="font-size:24px;color:white;"></i></a></td>
+           </tr>
 <?php 
 }
 }
 ?>
 
-      </tr>
+   
       
     </tbody>
   </table>
@@ -97,6 +99,7 @@ if(isset($_POST['submitbtn'])){
 $name = mysqli_real_escape_string($conn,$_POST["name"]);
 $dob = mysqli_real_escape_string($conn,$_POST["dob"]);
 $doj = mysqli_real_escape_string($conn,$_POST["doj"]);
+echo $doj; 
 
 $sql = "insert into student(STUDENT_NAME,STUDENT_DOB,STUDENT_DOJ)
         values('$name','$dob','$doj');";
