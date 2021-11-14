@@ -1,0 +1,23 @@
+body{
+   
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    height: 100vh;
+}
+.innerdiv{
+    margin-top: 34px;
+}
+table{
+    margin-top: 30px;
+}
+thead tr,tbody tr{
+    background-color:rgb(105, 102, 102);
+    color: white;
+}
+thead tr{
+    text-align: center;
+
+}
